@@ -130,6 +130,7 @@
        		 $(this).css("color","blue");
        	 },
      	'dragover':function(e){
+     	 	$("#t_body").css("color","red");
    		 e.preventDefault();
      	},
        	 'drop':function(e){
