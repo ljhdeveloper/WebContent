@@ -1,0 +1,64 @@
+body{
+background:#D0D0D0;
+}
+canvas {
+	border:#909090 1px solid;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.start_img {
+	position : absolute;
+	top:470px;
+	left:560px;
+}
+.menu1_img {
+	position : absolute;
+	top:490px;
+	left:580px;/*350*/
+	display:none;
+}
+.menu2_img {
+	position : absolute;
+	top:290px;
+	left:580px;/*350*/
+	display:none;
+}
+.menu3_img {
+	position : absolute;
+	top:90px;
+	left:580px;/*350*/
+	display:none;
+}
+.back_img {
+	position : absolute;
+	top:30px;
+	left:1120px;/*350*/
+	display:none;
+}
+.file_add_img {
+	position : absolute;
+	top:550px;
+	left:1070px;/*350*/
+	display:none;
+}
+.file_delete_img {
+	position : absolute;
+	top:550px;
+	left:930px;/*350*/
+	display:none;
+}
+#file_name_input{
+	position : absolute;
+	display:none;
+	background: transparent;
+	font-size : 18px;
+}
+.table_t{
+	position:absolute;
+		
+}
+	
+}
