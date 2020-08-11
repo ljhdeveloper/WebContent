@@ -8,7 +8,6 @@
 <title>이종현 & 김예서</title>
 </head>
 <body>
-<button class="word_temp" id="word_temp" draggable="true">apple : 사과</button>
 <input type="text" id="file_name_input" size=3 value="" >
 <div id="body">
 <img id="file_delete" class ="file_delete_img" src="image/folder/file_delete.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_delete.png'"/>	
@@ -30,14 +29,17 @@
 			<th>영단어 뜻</th>
 		</tr>
 	</thead><!-- Table Header -->
-<tbody id="t_body">
+<div id="t_body">
+<tbody>
 </tbody>
+</div>
 </table>
 </div>
 </div>
+<div class="word_temp" id="word_temp" draggable="true">apple : 사과</div>
 <canvas id="myCanvas" width="900" height="720"></canvas> 
 <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
-        
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/initialize.js"></script>
 <script src="js/main_js.js"></script>
 </div>

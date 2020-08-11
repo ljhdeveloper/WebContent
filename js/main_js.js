@@ -5,8 +5,7 @@
 
 		var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
-		
-        var lastUpdateTime = 0;
+		 var lastUpdateTime = 0;
         var acDelta = 0;
         var msPerFrame = 1000;
         var bool_bg=false;
@@ -121,7 +120,23 @@
                 acDelta += delta;
             }
         };
-
+        
+        
+        $("#t_body").on({
+         'dragenter':function(e){
+     	 	$("#t_body").css("color","red");
+     	 },
+       	'dragleave':function(e){
+       		 $(this).css("color","blue");
+       	 },
+     	'dragover':function(e){
+   		 e.preventDefault();
+     	},
+       	 'drop':function(e){
+       		 $(this).css("color","green");
+       		 e.preventDefault();
+       	 }
+        });
         $("#body").click(function(){
         	$("#file_name_input").css("display","none");
         	if(file_name_delete_index<7){
@@ -149,15 +164,6 @@
         	$("#file"+num).css("display","block");
 			$("#file_name"+num).css("display","block");
         	if(file_num!=6) file_num++;
-        });
-        $("#word_temp").on('dragover',function(e){
-        	
-        });
-        $("#word_temp").on('dragenter',function(e){
-        	
-        });
-        $("#word_temp").on('drap',function(e){
-	
         });
         $("#allfile img").dblclick(function () {
         	back_flag=2;
