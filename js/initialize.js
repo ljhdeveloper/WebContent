@@ -5,8 +5,9 @@
         var weight=470,result=0,fontweight=525;
         var file=["파일1","파일2","파일3","파일4","파일5","파일6"];
         
-        
-
+        for(var i=0;i<6;i++){
+        $("#t_body").append('<tr><td>단어를</td><td>추가해주세요</td></tr>');
+        }
        
         
         for(var i=0; i<6;i++){

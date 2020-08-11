@@ -56,9 +56,35 @@ canvas {
 	background: transparent;
 	font-size : 18px;
 }
-.table_t{
+/*.table_t{
 	position:absolute;
-		
+}*/
+.word_temp {
+	position:absolute;
+	top:300px;
+	left:800px;
+	display:none;
+	color: #606060;
+	border: solid 1px #b7b7b7;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+	outline: none;
+	cursor: pointer;
+	font: 14px/100% Arial, Helvetica, sans-serif;
+	padding: .5em 2em .55em;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	border-radius: .5em;
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
+.word_temp:hover {	
+	position:absolute;
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+	
+	text-decoration: none;
+}
+.word_temp:active {	
+	position:absolute;
+	color: #999;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
 	
 }

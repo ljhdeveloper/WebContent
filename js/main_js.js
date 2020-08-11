@@ -87,6 +87,7 @@
         	}
         	if(back_flag==2){
             	$("#word_table").css("display","none");
+            	$("#word_temp").css("display","none");
         		detail_menu1_draw();
         		back_flag=1;
         	}
@@ -149,10 +150,22 @@
 			$("#file_name"+num).css("display","block");
         	if(file_num!=6) file_num++;
         });
+        $("#word_temp").on('dragover',function(e){
+        	
+        });
+        $("#word_temp").on('dragenter',function(e){
+        	
+        });
+        $("#word_temp").on('drap',function(e){
+	
+        });
         $("#allfile img").dblclick(function () {
         	back_flag=2;
         	detail_menu1_back();
+        	$("#word_temp").css("display","block");
         	$("#word_table").css("display","block");
+        	$("#wrap").css("display","block");
+        	$("#over_flow").css("display","block");
         });
         $("#allfile_name span").dblclick(function () {
         	if(file_name_delete_index<7){

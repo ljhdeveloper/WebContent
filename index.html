@@ -1,12 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html>
-<head>
+
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/table.css">
+<head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>이종현 & 김예서</title>
 </head>
 <body>
+<button class="word_temp" id="word_temp" draggable="true">apple : 사과</button>
 <input type="text" id="file_name_input" size=3 value="" >
 <div id="body">
 <img id="file_delete" class ="file_delete_img" src="image/folder/file_delete.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_delete.png'"/>	
@@ -19,8 +21,8 @@
 <img id="menu2" class ="menu2_img" src="image/button/menu2.png" onmouseover="this.src='image/button/menu2_hover.png'" onmouseout="this.src='image/button/menu2.png'"/>		
 <img id="menu1" class ="menu1_img" src="image/button/menu1.png" onmouseover="this.src='image/button/menu1_hover.png'" onmouseout="this.src='image/button/menu1.png'"/>
 <img id="start" class ="start_img" src="image/button/start.png" onmouseover="this.src='image/button/start_hover.png'" onmouseout="this.src='image/button/start.png'"/>
-<div class="wrap">
-<div class ="over_flow">
+<div class="wrap" id="wrap">
+<div class ="over_flow" id="over_flow">
 <table class="word_table"  id="word_table" cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
 	<thead>
 		<tr>
@@ -28,18 +30,8 @@
 			<th>영단어 뜻</th>
 		</tr>
 	</thead><!-- Table Header -->
-
-	<tbody>
-		<tr>
-			<td>apple</td>
-			<td>사과</td>
-		</tr><!-- Table Row -->
-
-		<tr>
-			<td>banana</td>
-			<td>바나나</td>
-		</tr><!-- Darker Table Row -->
-	</tbody>
+<tbody id="t_body">
+</tbody>
 </table>
 </div>
 </div>
