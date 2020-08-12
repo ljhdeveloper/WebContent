@@ -2,7 +2,8 @@
  
  */
 	
-
+		var word_index=0;
+        var count_drag=0;
 		var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext("2d");
 		 var lastUpdateTime = 0;
@@ -87,6 +88,8 @@
         	if(back_flag==2){
             	$("#word_table").css("display","none");
             	$("#word_temp").css("display","none");
+            	$("#creat_word").css("display","none");
+            	$("#creat_mean").css("display","none");
         		detail_menu1_draw();
         		back_flag=1;
         	}
@@ -121,7 +124,6 @@
             }
         };
         
-        var count_drag=0;
         $("#t_body").on({
          'dragenter':function(e){
        		 e.preventDefault();
@@ -142,9 +144,29 @@
        	 'drop':function(e){
        		 count_drag=0;
        		 $(this).css("color","green");
+       		 if(word_index>=6){
+       			 create_td();
+       		 }
+      		 word_arr[word_index]=new word();
+      		 word_arr[word_index].word=$("#creat_word").val()+word_index;
+      		 word_arr[word_index].mean=$("#creat_mean").val()+word_index;
+      		 word_index++;
+      		 display_table();
        		 e.preventDefault();
        	 }
         });
+        var create_td=function(){
+        	$("#t_body").append('<tr draggable="true"><td>단어를</td><td>추가해주세요</td></tr>');
+        }
+        var display_table=function(){
+        	var table=$("#t_body td");
+        	for(var i=0;i<word_index;i++){
+        	console.log(word_arr[i].word);
+        	console.log(word_arr[i].mean);
+        	table.eq(i*2).text(word_arr[i].word);
+        	table.eq(i*2+1).text(word_arr[i].mean);
+        	}
+        }
         $("#body").click(function(){
         	$("#file_name_input").css("display","none");
         	if(file_name_delete_index<7){
@@ -178,8 +200,8 @@
         	detail_menu1_back();
         	$("#word_temp").css("display","block");
         	$("#word_table").css("display","block");
-        	$("#wrap").css("display","block");
-        	$("#over_flow").css("display","block");
+        	$("#creat_word").css("display","block");
+        	$("#creat_mean").css("display","block");
         });
         $("#allfile_name span").dblclick(function () {
         	if(file_name_delete_index<7){
@@ -203,6 +225,15 @@
                 	file_num--;
         		}
         	}
+        	
+        	
+        	back_flag=2;
+        	detail_menu1_back();
+        	$("#word_temp").css("display","block");
+        	$("#word_table").css("display","block");
+        	$("#creat_word").css("display","block");
+        	$("#creat_mean").css("display","block");
+        
         });
         $("#file_name_input").keypress(function(){
         	if(event.keyCode==13){

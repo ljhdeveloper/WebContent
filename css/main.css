@@ -99,3 +99,15 @@ canvas {
 	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
 	
 }
+#creat_word{
+	position:absolute;
+	display:none;
+	top:30%;
+	right:29%
+}
+#creat_mean{
+	position:absolute;
+	display:none;
+	top:35%;
+	right:29%
+}

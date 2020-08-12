@@ -8,10 +8,12 @@
 <title>이종현 & 김예서</title>
 </head>
 <body>
+<canvas id="myCanvas" width="900px"height="720px"></canvas> 
 <input type="text" id="file_name_input" size=3 value="" >
 <div id="body">
 <img id="file_delete" class ="file_delete_img" src="image/folder/file_delete.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_delete.png'"/>	
-	
+<input type="Text" id="creat_word" value="apple" size=7px>
+<input type="Text" id="creat_mean" value="사과" size=7px>	
 <img id="file_add" class ="file_add_img" src="image/folder/file_add.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_add.png'"/>				
 <div id="allfile"></div>
 <div id="allfile_name"></div>
@@ -34,10 +36,10 @@
 </div>
 </div>
 <div class="word_temp" id="word_temp" draggable="true">apple : 사과</div>
-<canvas id="myCanvas" width="900" height="720"></canvas> 
 <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="js/initialize.js"></script>
+<script src="js/word_data.js"></script>
 <script src="js/main_js.js"></script>
 </div>
 </body>

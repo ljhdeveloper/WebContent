@@ -1,17 +1,17 @@
 /**
  * 
  */
- 		var high=160,fonthigh=280;
-        var weight=470,result=0,fontweight=525;
+ 		var high=21,fonthigh=280;
+        var weight=30,result=0,fontweight=525;
         var file=["파일1","파일2","파일3","파일4","파일5","파일6"];
         for(var i=0;i<6;i++){
-        $("#t_body").append('<tr><td>단어를</td><td>추가해주세요</td></tr>');
+        $("#t_body").append('<tr draggable="true"><td>단어를</td><td>추가해주세요</td></tr>');
         }
         
         for(var i=0; i<6;i++){
         	result=fontweight+(i%3)*250;
         	if(i==3){
-        		high=370;
+        		high=48;
         		fonthigh=490;
         	}
             $("#allfile").append('<img id="file'+i+'" class ="file_img'+i+'" src="image/folder/file.png"/>');
@@ -23,11 +23,12 @@
         		display:"none",
         		fontSize : "20px"
             })
-        	result=weight+(i%3)*250;
+        	result=weight+(i%3)*15;
             $("#file"+i).css({
             	position : "absolute", 
-        		top:high+"px",
-        		left:result+"px",/*350*/
+            	width:"10%",
+        		top:high+"%",
+        		left:result+"%",/*350*/
         		display:"none"
             });
         }
