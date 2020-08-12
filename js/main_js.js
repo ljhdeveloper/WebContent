@@ -121,19 +121,26 @@
             }
         };
         
-        
+        var count_drag=0;
         $("#t_body").on({
          'dragenter':function(e){
+       		 e.preventDefault();
+       		count_drag++;
+       		$("#wrap").animate({top:100});
      	 	$("#t_body").css("color","red");
      	 },
        	'dragleave':function(e){
+       		count_drag--;
+       		if(count_drag===0){
        		 $(this).css("color","blue");
-       	 },
+       		}
+       	},
      	'dragover':function(e){
      	 	$("#t_body").css("color","red");
    		 e.preventDefault();
      	},
        	 'drop':function(e){
+       		 count_drag=0;
        		 $(this).css("color","green");
        		 e.preventDefault();
        	 }
