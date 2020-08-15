@@ -3,4 +3,3 @@ function word(){
 	var mean='';
 }
 var word_arr =new Array();
-

@@ -111,3 +111,8 @@ canvas {
 	top:35%;
 	right:29%
 }
+#drag_word{
+	position:absolute;
+	top:50%;
+	left:60%;
+}

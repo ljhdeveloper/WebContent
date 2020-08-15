@@ -123,22 +123,35 @@
                 acDelta += delta;
             }
         };
-        
-        $("#t_body").on({
+       
+        $("#drag_word").on({
+        	'dragstart':function(e){
+        		 $("#fuck").append("<img id='drop_img' class='drop_img' src='image/bg/drop.png'/>");
+        		 $(".drop_img").css({
+                 	position : "absolute", 
+             		top:"20%",
+             		left:"20%",/*350*/
+                 })
+        	},
+        	'dragend':function(e){
+          		 $('#drop_img').remove();
+        	}
+        });
+        $("#fuck").on({
          'dragenter':function(e){
        		 e.preventDefault();
        		count_drag++;
-       		$("#wrap").animate({top:100});
+       		$("#drop_img").attr('src','image/bg/drop_hover.png');
      	 	$("#t_body").css("color","red");
      	 },
        	'dragleave':function(e){
        		count_drag--;
        		if(count_drag===0){
-       		 $(this).css("color","blue");
+           		$("#drop_img").attr('src','image/bg/drop.png');
+       		 $("#t_body").css("color","blue");
        		}
        	},
      	'dragover':function(e){
-     	 	$("#t_body").css("color","red");
    		 e.preventDefault();
      	},
        	 'drop':function(e){
