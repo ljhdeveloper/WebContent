@@ -1,5 +1,5 @@
-	@FONT-FACE{font-family: "jua";src: url("/../english_dictionary/font/BMJUA_ttf.ttf");}
-  	@FONT-FACE{font-family: "hanna_air";src: url("/../english_dictionary/font/BMHANNAAir_ttf.ttf");}
+	@FONT-FACE{font-family: "jua";src: url("/../font/BMJUA_ttf.ttf");}
+  	@FONT-FACE{font-family: "hanna_air";src: url("/../font/BMHANNAAir_ttf.ttf");}
   		
   .over_flow{
   position:absolute;
@@ -74,10 +74,10 @@
    height:89%;
   vertical-align:middle;
   cursor:pointer;
-  background:url(/../english_dictionary/image/button/favorite.png)no-repeat;
+  background:url(/../image/button/favorite.png)no-repeat;
   }
   .favorite_box:checked +label span{
-  background:url(/../english_dictionary/image/button/favorite_check.png)no-repeat;
+  background:url(/../image/button/favorite_check.png)no-repeat;
   }
   .word_delete_img{
   cursor:pointer;
