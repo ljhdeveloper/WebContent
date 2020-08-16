@@ -65,54 +65,44 @@ canvas {
 	background: transparent;
 	font-size : 18px;
 }
-/*.table_t{
-	position:absolute;
-}*/
-.word_temp {
-	position:absolute;
-	top:25%;
-	left:60%;
+.input_word{
 	display:none;
+	position:absolute;
+	width:55%;
+	left:13%;
+	top:72%;
+	font-family:"hanna_air";
+	font-size:2.05em;
+	text-align: center;
+}
+.word_temp {
+	display:inline-block;
 	color: #606060;
 	border: solid 1px #b7b7b7;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
-	outline: none;
 	cursor: pointer;
-	font: 14px/100% Arial, Helvetica, sans-serif;
-	padding: .5em 2em .55em;
+	padding: 0.4em 2em 0.4em;
 	text-shadow: 0 1px 1px rgba(0,0,0,.3);
 	border-radius: .5em;
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
-	width:8%;
-	text-align: center;
+	width:13%;
 }
 .word_temp:hover {	
-	position:absolute;
 	background: #ededed;
 	background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
 	
 	text-decoration: none;
 }
 .word_temp:active {	
-	position:absolute;
 	color: #999;
 	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
 	
 }
-#creat_word{
-	position:absolute;
-	display:none;
-	top:30%;
-	right:29%
+.word_temp-1{
+	margin-left:3%;
+	display:inline-block;
+	vertical-align:middle;
 }
-#creat_mean{
-	position:absolute;
-	display:none;
-	top:35%;
-	right:29%
-}
-#drag_word{
-	position:absolute;
-	top:50%;
-	left:60%;
+.word_temp-1-1{
+	margin-top:6%;	
 }

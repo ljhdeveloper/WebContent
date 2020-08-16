@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.word_table {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #666;
+	font-size: 13px;
+	text-shadow: 1px 1px 0px #fff;
+	border: #ccc 1px solid;
+	border-radius: 3px;
+}
+.word_table > thead th {
+	padding: 21px 25px 22px 25px;
+	border-bottom: 1px solid #e0e0e0;
+	background: linear-gradient(to bottom,  #ededed 0%,#ebebeb 100%); /* W3C */
+}
+.word_table > thead th:first-child{
+	text-align: center;
+	padding-left: 20px;
+}
+.word_table > tbody > tr {
+	text-align: center;
+	height:80px;
+}
+.word_table > tbody > tr > td:first-child {
+	border-left: 0;
+}
+.word_table > tbody > tr > td {
+	width:150px;
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #e0e0e0;
+	background: linear-gradient(to bottom,  #fbfbfb 0%,#fafafa 100%); /* W3C */
+}
+.word_table > tbody > tr:nth-child(even) > td{
+	background: #f8f8f8; /* Old browsers */
+	background: linear-gradient(to bottom,  #f8f8f8 0%,#f6f6f6 100%); 
+}
+.word_table > tbody > tr:last-child > td{
+	border-bottom: 0;
+}
+.word_table > tbody > tr:last-child > td:first-child {
+	border-bottom-left-radius: 3px;
+}
+.word_table > tbody > tr:last-child > td:last-child {
+	border-bottom-right-radius: 3px;
+}
+.word_table > tbody > tr:hover > td {
+	background: #f2f2f2; /* Old browsers */
+	background: linear-gradient(to bottom,  #f2f2f2 0%,#f0f0f0 100%); /* W3C */
+}
+.over_flow{
+	position:absolute;
+	max-height:544px;
+ 	overflow-y:auto;
+}
+.wrap{
+	position:absolute;
+	left:27%;
+	top:12%;
+	width:320px;
+	margin:auto;
+}
+.over_flow::-webkit-scrollbar{
+-webkit-text-security: disc;
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+var display_table=function(){
+	var table=$("#t_body td");
+	console.log("display:"+word_index);
+	for(var i=0;i<word_index;i++){
+	table.eq(i*2).text(word_arr[i].word);
+	table.eq(i*2+1).text(word_arr[i].mean);
+	}
+}
+var create_td=function(){
+	$("#t_body").append('<tr draggable="true"><td>단어를</td><td>추가해주세요</td></tr>');
+}
+$("#drag_word").on({
+	'dragstart':function(e){
+		 $("#drop1").append("<img id='drop_img' class='drop_img' src='image/bg/drop.png'/>");
+		 $(".drop_img").css({
+         	position : "absolute", 
+     		top:"20%",
+     		left:"27%",/*350*/
+         })
+	},
+	'dragend':function(e){
+  		 $('#drop_img').remove();
+	}
+});
+$("#drop1").on({
+ 'dragenter':function(e){
+		 e.preventDefault();
+		count_drag++;
+		$("#drop_img").attr('src','image/bg/drop_hover.png');
+	 },
+	'dragleave':function(e){
+		count_drag--;
+		if(count_drag===0){
+   		$("#drop_img").attr('src','image/bg/drop.png');
+		}
+	},
+	'dragover':function(e){
+	 e.preventDefault();
+	},
+	 'drop':function(e){
+		 count_drag=0;
+		 if(word_index>=6){
+			 create_td();
+		 }
+		 var word_data=$("#word_span").data();
+		 insert_word(word_data.word,word_data.mean);
+		 display_table();
+		 e.preventDefault();
+	 }
+	});
+</script>
+<div class="wrap" id="wrap">
+<div class ="over_flow" id="over_flow">
+<table class="word_table"  id="word_table" cellspacing='0'> <!-- cellspacing='0' is important, must stay -->
+	<thead>
+		<tr>
+			<th>영단어</th>
+			<th>영단어 뜻</th>
+		</tr>
+	</thead><!-- Table Header -->
+<tbody id="t_body">
+		<tr>
+			<th>영단어</th>
+			<th>영단어 뜻</th>
+		</tr>
+		<tr>
+			<th>영단어</th>
+			<th>영단어 뜻</th>
+		</tr>
+		<tr>
+			<th>영단어</th>
+			<th>영단어 뜻</th>
+		</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="drag_word" draggable="true">
+<img class ="drag_word_img" src="image/button/drag_word.png"/>
+<span id="word_span"></span>
+</div>
+<div id="drop1"></div>
+</body>
+</html>

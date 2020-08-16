@@ -2,11 +2,10 @@
  
  */
 	
-		var word_index=0;
         var count_drag=0;
 		var canvas = document.getElementById("myCanvas");
-        var ctx = canvas.getContext("2d");
-		 var lastUpdateTime = 0;
+        var ctx = canvas.getContext('2d');
+		var lastUpdateTime = 0;
         var acDelta = 0;
         var msPerFrame = 1000;
         var bool_bg=false;
@@ -86,11 +85,10 @@
              bool_detail_mn=false;
         	}
         	if(back_flag==2){
-            	$("#word_table").css("display","none");
-            	$("#word_temp").css("display","none");
-            	$("#creat_word").css("display","none");
-            	$("#creat_mean").css("display","none");
-        		detail_menu1_draw();
+            	$("#over_flow").toggle();
+            	$("#input_word").css("display","none");
+            	$("#empty_table").css("display","none");
+            	detail_menu1_draw();
         		back_flag=1;
         	}
         	for(var i=0;i<6;i++){
@@ -98,8 +96,14 @@
             	file_delete_arr[i]=false;
             	}
         }
-        
-        
+        var insert_click=function(){
+        	var cw=$("#creat_word").val();
+        	var cm=$("#creat_mean").val();
+        	if(cw=="" || cm==""||cw==" " || cm==" "){
+         		 return;
+        	}
+        	insert_word(cw,cm);
+        }
         var render = function () {  
             var delta = Date.now() - lastUpdateTime;
             if (acDelta > msPerFrame) {
@@ -123,63 +127,21 @@
                 acDelta += delta;
             }
         };
-       
-        $("#drag_word").on({
-        	'dragstart':function(e){
-        		 $("#fuck").append("<img id='drop_img' class='drop_img' src='image/bg/drop.png'/>");
-        		 $(".drop_img").css({
-                 	position : "absolute", 
-             		top:"20%",
-             		left:"20%",/*350*/
-                 })
-        	},
-        	'dragend':function(e){
-          		 $('#drop_img').remove();
-        	}
+        $(document.body).delegate(".word_table tr","click",function(){
+        	$(this).toggleClass('tr_c');
         });
-        $("#fuck").on({
-         'dragenter':function(e){
-       		 e.preventDefault();
-       		count_drag++;
-       		$("#drop_img").attr('src','image/bg/drop_hover.png');
-     	 	$("#t_body").css("color","red");
-     	 },
-       	'dragleave':function(e){
-       		count_drag--;
-       		if(count_drag===0){
-           		$("#drop_img").attr('src','image/bg/drop.png');
-       		 $("#t_body").css("color","blue");
-       		}
-       	},
-     	'dragover':function(e){
-   		 e.preventDefault();
-     	},
-       	 'drop':function(e){
-       		 count_drag=0;
-       		 $(this).css("color","green");
-       		 if(word_index>=6){
-       			 create_td();
-       		 }
-      		 word_arr[word_index]=new word();
-      		 word_arr[word_index].word=$("#creat_word").val()+word_index;
-      		 word_arr[word_index].mean=$("#creat_mean").val()+word_index;
-      		 word_index++;
-      		 display_table();
-       		 e.preventDefault();
-       	 }
+        $(document.body).delegate("#tts","click", function(){
+        	$(this).parents("tr").toggleClass('tr_c');
+        	var spalling=$(this).parent().prev().prev();
+        	var input = spalling.text();
+        	console.log(input);
+        	speech(input);
         });
-        var create_td=function(){
-        	$("#t_body").append('<tr draggable="true"><td>단어를</td><td>추가해주세요</td></tr>');
-        }
-        var display_table=function(){
-        	var table=$("#t_body td");
-        	for(var i=0;i<word_index;i++){
-        	console.log(word_arr[i].word);
-        	console.log(word_arr[i].mean);
-        	table.eq(i*2).text(word_arr[i].word);
-        	table.eq(i*2+1).text(word_arr[i].mean);
-        	}
-        }
+        $(document.body).delegate("#word_delete","click", function(){
+        	$(this).parents("tr").toggleClass('tr_c');
+        	var spalling=$(this).parent().prev().prev().prev();
+        	delete_word(spalling.text());
+        });
         $("#body").click(function(){
         	$("#file_name_input").css("display","none");
         	if(file_name_delete_index<7){
@@ -211,10 +173,9 @@
         $("#allfile img").dblclick(function () {
         	back_flag=2;
         	detail_menu1_back();
-        	$("#word_temp").css("display","block");
-        	$("#word_table").css("display","block");
-        	$("#creat_word").css("display","block");
-        	$("#creat_mean").css("display","block");
+        	$("#input_word").css("display","block");
+        	$("#over_flow").toggle();
+        	display();
         });
         $("#allfile_name span").dblclick(function () {
         	if(file_name_delete_index<7){
@@ -242,10 +203,8 @@
         	
         	back_flag=2;
         	detail_menu1_back();
-        	$("#word_temp").css("display","block");
-        	$("#word_table").css("display","block");
-        	$("#creat_word").css("display","block");
-        	$("#creat_mean").css("display","block");
+        	$("#input_word").css("display","block");
+        	$("#over_flow").css("display","block");
         
         });
         $("#file_name_input").keypress(function(){

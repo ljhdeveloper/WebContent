@@ -3,22 +3,133 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Draggable - Default functionality</title>
-  <style>
+  <style type="text/css">
+  @FONT-FACE{
+  		font-family: "joache";
+  		src: url("font/BMJUA_ttf.ttf");
+  }
   #draggable { width: 150px; height: 150px; 
+  top:200px;
   padding: 0.5em; border-style:solid ;
+  }
+  body{
+  font-family:"joache";
+  }
+  .over_flow{
+	max-height:60%;
+ 	max-width:61%;
+ 	overflow:auto;
+  }
+  .word_table{
+  font-size:20px;
+  height:60%;
+  width:100%;
+  border-radius:6px;
+  border:1px solid black;
+  }
+  .word_table>tbody>tr>td{
+  white-space: nowrap;
+  padding-left:1%;
+  border-bottom:1px solid darkred;
+  }
+  .word_table>tbody>tr>td:nth-child(1),.word_table>tbody>tr>td:nth-child(2){
+  width:20%;
+  }
+  .word_table>tbody>tr:last-child>td{
+  border-bottom:0px solid black;
+  }
+   .word_table>tbody>tr>td:nth-child(3){
+  width:7%;
+  text-align:right;
+  }
+  .word_table>tbody>tr>td:nth-child(5){
+  width:18%;
+  text-align:right;
+  padding:0;
+  }
+  .word_table>tbody>tr>td:nth-child(4){
+  width:1%;
+  }
+  .word_table>tbody>tr>td:last-child{
+  width:20%;
+  padding-right:2%;
+  }
+  tr{
+  background:#BDBDBD;
+  }
+  .tr_c{
+  background:white;
+  }
+  .tts_img{
+  width:100%;
+  height:20%;
+  cursor:pointer;
+  }
+  .word_table>tbody>tr:hover>td{
+   background:#f2f2f2;
+  }
+  .word_table>tbody>tr:active>td{
+   background:#BDBDBD;
+  }
+  .favorite_box{
+  display:none;
+  }
+  label{
+  color:red;
+  }
+  label span{
+   display:inline-block;
+   width:33%;
+   height:89%;
+  vertical-align:middle;
+  cursor:pointer;
+  background:url(image/button/favorite.png)no-repeat;
+  }
+  .favorite_box:checked +label span{
+  background:url(image/button/favorite_check.png)no-repeat;
+  }
+  .word_delete_img{
+  cursor:pointer;
   }
   </style>
 </head>
 <body>
- 
 <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js/TTS_service.js?ver=1"></script>
+
+<div class ="over_flow" id="over_flow">
+ <table class="word_table" cellspacing='0'>
+ <tbody id="t_body">
+ </tbody>
+ </table>
+ </div>
+ <script>
+
+ for(var i=0;i<10;i++)
+$("#t_body").append('<tr class="tr_c"> <td id="spalling">apple</td> <td>사과</td> <td><img id="tts" class ="tts_img" src="image/button/tts.png""/></td><td> <img id="word_delete"  class="word_delete_img" src="image/button/delete_word.png" /></td>  <td><input type="checkbox" id="favorite'+i+'" class="favorite_box"/><label for="favorite'+i+'"><span></span>즐겨찾기 추가</label></td> <td>메모: <input type="text" value="">&nbsp&nbsp&nbsp</td> </tr>');
+$(document.body).delegate(".word_table tr","click",function(){
+	$(this).toggleClass('tr_c');
+});
+$(document.body).delegate("#tts","click", function(){
+	$(this).parents("tr").toggleClass('tr_c');
+	var spalling=$(this).parent().prev().prev();
+	var input = spalling.text();
+	console.log(input);
+	speech(input);
+});
+$(document.body).delegate("#word_delete","click", function(){
+	$(this).parents("tr").toggleClass('tr_c');
+});
+$("#draggable").click(function(){
+	console.log(1);
+})
+</script>
+ 
+<div class="word_temp"" id="draggable" draggable="true">apple : 사과</div>
 
  
-<div class="word_temp"" id="draggable" draggable="true" >apple : 사과</div>
 
- 
- 
 <div class="word_temp" id="drop">apple : sdaf</div>
 
 <script>
