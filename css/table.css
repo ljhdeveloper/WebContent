@@ -74,10 +74,10 @@
    height:89%;
   vertical-align:middle;
   cursor:pointer;
-  background:url(/../image/button/favorite.png)no-repeat;
+  background:url(/../english_dictionary/image/button/favorite.png)no-repeat;
   }
   .favorite_box:checked +label span{
-  background:url(/../image/button/favorite_check.png)no-repeat;
+  background:url(/../english_dictionary/image/button/favorite_check.png)no-repeat;
   }
   .word_delete_img{
   cursor:pointer;

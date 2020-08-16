@@ -139,6 +139,9 @@
         });
         $(document.body).delegate("#word_delete","click", function(){
         	$(this).parents("tr").toggleClass('tr_c');
+        	var index=$("#t_body tr").index(this);
+        	/*index=Math.abs(index);*/
+        	console.log(index);
         	var spalling=$(this).parent().prev().prev().prev();
         	delete_word(spalling.text());
         });

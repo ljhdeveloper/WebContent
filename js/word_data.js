@@ -8,6 +8,7 @@ var word_index=0;
 var word_arr =new Array();
 var favorite_index=0;
 var display=function(){
+	var table=$("#t_body tr");
 	var tr_count=$("#t_body>tr").size();
 	if(tr_count<=word_index){
 		for(var i=0;i<word_index-tr_count;i++){
@@ -17,8 +18,11 @@ var display=function(){
 	}
 	else{
 		for(var i=0;i<tr_count-word_index;i++){
-			("#t_body td").eq(0).detach();
+			table.eq(i).detach();
 			favorite_index--;
+		}
+		if(word_index===0){
+			$("#empty_table").css("display","block");
 		}
 		return;
 	}
@@ -30,7 +34,7 @@ var display=function(){
 		$("#empty_table").css("display","none");
 		
 	}
-	var table=$("#t_body td");
+	table=$("#t_body td");
 	for(var i=0;i<word_index;i++){
     table.eq(i*6).text(word_arr[i].word);
     table.eq(i*6+1).text(word_arr[i].mean);
