@@ -103,6 +103,7 @@
          		 return;
         	}
         	insert_word(cw,cm);
+        	
         }
         var render = function () {  
             var delta = Date.now() - lastUpdateTime;
@@ -139,11 +140,13 @@
         });
         $(document.body).delegate("#word_delete","click", function(){
         	$(this).parents("tr").toggleClass('tr_c');
-        	var index=$("#t_body tr").index(this);
-        	/*index=Math.abs(index);*/
-        	console.log(index);
         	var spalling=$(this).parent().prev().prev().prev();
         	delete_word(spalling.text());
+        });
+        $("#search_wd").keypress(function(){
+        	if(event.keyCode==13){
+        		search_word($("#search_wd").val());
+        	}
         });
         $("#body").click(function(){
         	$("#file_name_input").css("display","none");
@@ -178,7 +181,7 @@
         	detail_menu1_back();
         	$("#input_word").css("display","block");
         	$("#over_flow").toggle();
-        	display();
+        	display(word_arr,word_index);
         });
         $("#allfile_name span").dblclick(function () {
         	if(file_name_delete_index<7){
@@ -202,8 +205,7 @@
                 	file_num--;
         		}
         	}
-        	
-        	
+        	//모바일 임시용
         	back_flag=2;
         	detail_menu1_back();
         	$("#input_word").css("display","block");
@@ -223,7 +225,7 @@
         $("#menu3").click(function () {
         	detail_allmenu_draw();
         	detail_menu1_draw();
-        });
+        })
         $("#menu2").click(function () {
         	detail_allmenu_draw();
         });

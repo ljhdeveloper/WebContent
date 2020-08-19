@@ -4,10 +4,21 @@ function word(){
 	var favorite=false;
 	var memo='';
 }
+
 var word_index=0;
 var word_arr =new Array();
 var search_arr =new Array();
 var search_index=0;
+
+var insert_click=function(){
+	var cw=$("#creat_word").val();
+	var cm=$("#creat_mean").val();
+	if(cw=="" || cm==""||cw==" " || cm==" "){
+ 		 return;
+	}
+	insert_word(cw,cm);
+}
+
 var display=function(arr,index){
 	var favorite_index=0;
 	var table=$("#t_body tr");
