@@ -4,8 +4,13 @@ function word(){
 	var favorite=false;
 	var memo='';
 }
-var word_index=0;
+/*var word_arr = new Array();
+var word_index = [0,0,0,0,0,0];
+for(var i=0;i<6;i++){
+	word_arr[i]=new Array();
+}*/
 var word_arr =new Array();
+var word_index=0;
 var search_arr =new Array();
 var search_index=0;
 var display=function(arr,index){

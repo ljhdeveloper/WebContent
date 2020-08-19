@@ -1,6 +1,18 @@
 .search_wd_c{
 	top:6em;
-	left:37em;
+	left:40em;
+}
+.table_name_c{
+	top:0.7em;
+	left:0.7em;
+	font-family:"hanna_air";
+	font-weight: bold;
+	font-size:4em;
+	color:yellowgreen;
+}
+.memo_icon_c{
+	vertical-align:middle;
+	cursor:pointer;
 }
 .empty_table_c{
 	top:7em;
@@ -26,7 +38,7 @@
   padding-left:1%;
   border-bottom:1px solid darkred;
   }
-  .word_table_c>tbody>tr>td:nth-child(1),.word_table>tbody>tr>td:nth-child(2){
+  .word_table_c>tbody>tr>td:nth-child(1),.word_table_c>tbody>tr>td:nth-child(2){
   width:20%;
   }
   .word_table_c>tbody>tr:last-child>td{
@@ -46,7 +58,6 @@
   }
   .word_table_c>tbody>tr>td:last-child{
   width:20%;
-  padding-right:2%;
   }
   tr{
   background:#BDBDBD;
@@ -54,7 +65,7 @@
   .tr_c{
   background:white;
   }
-  .tts_img{
+  .tts_c{
   width:100%;
   height:20%;
   cursor:pointer;
@@ -65,7 +76,7 @@
   .word_table_c>tbody>tr:active>td{
    background:#BDBDBD;
   }
-  .favorite_box{
+  .favorite_box_c{
   display:none;
   }
   label{
@@ -79,7 +90,7 @@
   cursor:pointer;
   background:url(/../english_dictionary/image/button/favorite.png)no-repeat;
   }
-  .favorite_box:checked +label span{
+  .favorite_box_c:checked +label span{
   background:url(/../english_dictionary/image/button/favorite_check.png)no-repeat;
   }
   .word_delete_c{
@@ -113,4 +124,10 @@
 	font-size:1.5em;
 	top:24.4em;
 	left:15.7em;
+}
+.search_icon_c{
+	top:4.5em;
+	left:45em;
+	width:2em;
+	cursor:pointer;
 }
