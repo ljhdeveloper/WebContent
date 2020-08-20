@@ -1,19 +1,31 @@
 	var file_count_global=0;
 	var back_flag=0;
 	var file_num=0;
+	var file_name_select=7;
 	$(document.body).delegate("#start_button","click",function(){
     	$("#start").toggle();
     	$("#main_bg").css('background-image','url("image/bg/background2.png")');
     	$("#menu").toggle();
     })
-	/*$("body").on("click","#all_file img",function(){
-		back_flag +=1;
-    	file_num=$(this).index();
-    	$("#table_name").text("< "+file_name_arr[file_num]+" >");
-		$("#menu1-1").toggle();
-    	$("#menu1-2").toggle();
-    	display(word_arr[file_num],word_index[file_num]);
-	})*/
+	$("body").click(function(){
+		if(file_name_select<7){
+    	$("#file_name_input").css("display","none");
+    	$("#file_name"+file_name_select).css("display","block");
+    	file_name_select=7;
+    	$("#file_name_input").val('');
+		}
+    });
+    $(document.body).delegate("#all_file_name span","click",function(e){
+    	e.stopPropagation();
+    	if(file_name_select<7){
+        	$("#file_name"+file_name_select).css("display","block");
+        	$("#file_name_input").val('');
+        }
+    	file_name_select=$(this).index();
+    	var pos=$(this).position();
+    	$("#file_name_input").css({display:"block",left:pos.left,top:pos.top});
+    	$(this).css("display","none");
+    });
 	$(document.body).delegate("#menu img","click",function(){
 		$("#menu").toggle();
     	$("#enter_menu1").toggle();

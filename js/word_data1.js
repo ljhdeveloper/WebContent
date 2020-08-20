@@ -103,7 +103,6 @@ var delete_word =function(dword){
 	}
 	if(i<word_index[file_num]-1){
 	word_arr[file_num][i].word=word_arr[file_num][word_index[file_num]-1].word;
-	console.log(word_arr[file_num][i].word);
 	word_arr[file_num][i].mean=word_arr[file_num][word_index[file_num]-1].mean;
 	word_arr[file_num][i].favorite=word_arr[file_num][word_index[file_num]-1].favorite;
 	word_arr[file_num][i].memo=word_arr[file_num][word_index[file_num]-1].memo;

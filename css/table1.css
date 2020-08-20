@@ -92,10 +92,10 @@
    width:49%;
    height:89%;
   vertical-align:middle;
-  background:url(/../english_dictionary/image/button/favorite.png)no-repeat;
+  background:url(/../image/button/favorite.png)no-repeat;
   }
   .favorite_box_c:checked +label span{
-  background:url(/../english_dictionary/image/button/favorite_check.png)no-repeat;
+  background:url(/../image/button/favorite_check.png)no-repeat;
   }
  .word_input_button_c {
 	color: #606060;

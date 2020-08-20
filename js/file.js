@@ -4,7 +4,7 @@ var file_delete_arr=[false,false,false,false,false,false];
 var file_add = function(file_count){
 		if(file_count<6){
 			var top=8 ,font_top=12.5;
-			var left=9 ,font_left=10;
+			var left=9 ,font_left=8;
 			var left_index=file_count;
 			if(file_count>2){
 				left_index -= 3;
@@ -23,14 +23,41 @@ var file_add = function(file_count){
 				top:font_top+"em",
 				left:font_left+11.3*left_index+"em",
 				fontSize : "20px",
+				width:"6em",
+				textAlign:"center",
 			});
 		}
 }
+$("#file_name_input").click(function(e){
+	e.stopPropagation();
+})
+$("#file_name_input").keypress(function(){
+	if(event.keyCode==13){
+		var name=$("#file_name_input").val();
+		file_name_arr[file_name_select]=name;
+		$("#file_name"+file_name_select).text(name);
+		$("#file_name_input").css("display","none");
+    	$("#file_name"+file_name_select).css("display","block");
+    	file_name_select=7;
+    	$("#file_name_input").val('');
+	}
+});
 var swap_file=function(index1,index2){
 	file_name_arr[index1]=file_name_arr[index2];
 	file_name_arr[index2]="file";
 }
-
+var word_arr_swap=function(use,trash){
+	word_index[use]=0;
+	for(var i=0;i<word_index[trash];i++){
+		word_arr[use][i]=new word;
+		word_arr[use][i].word=word_arr[trash][i].word;
+		word_arr[use][i].mean=word_arr[trash][i].mean;
+		word_arr[use][i].favorite=word_arr[trash][i].favorite;
+		word_arr[use][i].memo=word_arr[trash][i].memo;
+		word_index[use]++;
+	}
+	word_index[trash]=0;
+}
 var delete_f=function(){
 	var file_delete_index=0;
 	$("#all_file img").detach();
@@ -40,12 +67,17 @@ var delete_f=function(){
 			file_delete_index++;
 		}
 	}
+	if(file_delete_index===0){
+		for(var i=0;i<6;i++){
+			word_index[i]=0;
+		}
+	}
 	
 	for(var i=0;i<file_count_global;i++){
 		if(file_delete_arr[i]){
 			for(var j=file_count_global-1;j>i;j--){
 				if(!file_delete_arr[j]){
-					console.log(j);
+					word_arr_swap(i,j);
 					swap_file(i,j);
 					file_delete_arr[i]=false;
 					file_delete_arr[j]=true;
@@ -61,7 +93,6 @@ var delete_f=function(){
 		file_add(i);
 	}
 	file_count_global=file_delete_index;
-	
 }
 var file_enter=function(){
 	back_flag +=1;

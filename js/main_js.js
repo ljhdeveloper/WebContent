@@ -188,7 +188,7 @@
         	$("#file_name"+file_name_delete_index).css("display","block");
         	}
         	var pos=$(this).position();
-        	$("#file_name_input").css({display:"block",left:pos.left,top:pos.top});
+        	$("#file_name_input").css({display:"block",left:pos.left-43,top:pos.top});
         	$(this).css("display","none");
          	file_name_delete_index=$(this).index();
         });
