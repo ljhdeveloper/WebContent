@@ -5,10 +5,13 @@ function word(){
 	var memo='';
 }
 
-var word_index=0;
+var word_index=[0,0,0,0,0,0];
 var word_arr =new Array();
 var search_arr =new Array();
 var search_index=0;
+for(var i=0;i<6;i++){
+	word_arr[i] =new Array();
+}
 $("#creat_word").keypress(function(){
 	if(event.keyCode==13){
 		insert_click();
@@ -20,12 +23,12 @@ $("#creat_mean").keypress(function(){
 	}
 });
 var insert_memo=function(sword,memo){
-	for(i=0;i<word_index;i++){
-		if(word_arr[i].word==sword){
+	for(i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].word==sword){
 			break;
 		}
 	}
-	word_arr[i].memo=memo;
+	word_arr[file_num][i].memo=memo;
 }
 var insert_click=function(){
 	var cw=$("#creat_word").val();
@@ -36,16 +39,16 @@ var insert_click=function(){
 	insert_word(cw,cm);
 }
 var favorite_set=function(sword){
-	for(i=0;i<word_index;i++){
-		if(word_arr[i].word==sword){
+	for(i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].word==sword){
 			break;
 		}
 	}
-	if ( word_arr[i].favorite ) {
-		word_arr[i].favorite=false;
+	if ( word_arr[file_num][i].favorite ) {
+		word_arr[file_num][i].favorite=false;
 	} 
 	else { 
-		word_arr[i].favorite=true;
+		word_arr[file_num][i].favorite=true;
 	}
 }
 var display=function(arr,index){
@@ -75,47 +78,48 @@ var display=function(arr,index){
     }
 }
 var insert_word=function(nword,nmean){ 
-	for(var i=0;i<word_index;i++){
-		if(word_arr[i].word===nword){
+	for(var i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].word===nword){
 			return;
 		}
 	}
-	word_arr[word_index]=new word;
-	word_arr[word_index].word=nword;
-	word_arr[word_index].mean=nmean;
-	word_arr[word_index].favorite=false;
-	word_arr[word_index].memo='';
-	word_index++;
-	display(word_arr,word_index);
+	word_arr[file_num][word_index[file_num]]=new word;
+	word_arr[file_num][word_index[file_num]].word=nword;
+	word_arr[file_num][word_index[file_num]].mean=nmean;
+	word_arr[file_num][word_index[file_num]].favorite=false;
+	word_arr[file_num][word_index[file_num]].memo='';
+	word_index[file_num]++;
+	display(word_arr[file_num],word_index[file_num]);
 }
 var delete_word =function(dword){
 	var i;
 	if(dword==undefined){
 		return;
 	}
-	for(i=0;i<word_index;i++){
-		if(word_arr[i].word==dword){
+	for(i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].word==dword){
 			break;
 		}
 	}
-	if(i<word_index-1){
-	word_arr[i].word=word_arr[word_index-1].word;
-	word_arr[i].mean=word_arr[word_index-1].mean;
-	word_arr[i].favorite=word_arr[word_index-1].favorite;
-	word_arr[i].memo=word_arr[word_index-1].memo;
+	if(i<word_index[file_num]-1){
+	word_arr[file_num][i].word=word_arr[file_num][word_index[file_num]-1].word;
+	console.log(word_arr[file_num][i].word);
+	word_arr[file_num][i].mean=word_arr[file_num][word_index[file_num]-1].mean;
+	word_arr[file_num][i].favorite=word_arr[file_num][word_index[file_num]-1].favorite;
+	word_arr[file_num][i].memo=word_arr[file_num][word_index[file_num]-1].memo;
 	}
-	word_index--;
-	display(word_arr,word_index);
+	word_index[file_num]--;
+	display(word_arr[file_num],word_index[file_num]);
 }
 var search_word = function(dword){
 	search_index=0;
-	for(var i=0;i<word_index;i++){
-		if(word_arr[i].word.includes(dword)||word_arr[i].mean.includes(dword)){
+	for(var i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].word.includes(dword)||word_arr[file_num][i].mean.includes(dword)){
 			search_arr[search_index]=new word;
-			search_arr[search_index].word=word_arr[i].word;
-			search_arr[search_index].mean=word_arr[i].mean;
-			search_arr[search_index].favorite=word_arr[i].favorite;
-			search_arr[search_index].memo=word_arr[i].memo;
+			search_arr[search_index].word=word_arr[file_num][i].word;
+			search_arr[search_index].mean=word_arr[file_num][i].mean;
+			search_arr[search_index].favorite=word_arr[file_num][i].favorite;
+			search_arr[search_index].memo=word_arr[file_num][i].memo;
 			search_index++;
 		}
 	}

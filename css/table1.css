@@ -1,3 +1,10 @@
+.search_icon_c,.word_delete_c,.refresh_c,.memo_icon_c,.tts_c,label span{
+	cursor:pointer;
+}
+.refresh_c{
+	top:4.6em;
+	left:31em;
+}
 .search_wd_c{
 	top:6em;
 	left:40em;
@@ -12,7 +19,6 @@
 }
 .memo_icon_c{
 	vertical-align:middle;
-	cursor:pointer;
 }
 .empty_table_c{
 	top:7em;
@@ -68,7 +74,6 @@
   .tts_c{
   width:100%;
   height:20%;
-  cursor:pointer;
   }
   .word_table_c>tbody>tr:hover>td{
    background:#f2f2f2;
@@ -87,14 +92,10 @@
    width:49%;
    height:89%;
   vertical-align:middle;
-  cursor:pointer;
   background:url(/../english_dictionary/image/button/favorite.png)no-repeat;
   }
   .favorite_box_c:checked +label span{
   background:url(/../english_dictionary/image/button/favorite_check.png)no-repeat;
-  }
-  .word_delete_c{
-  cursor:pointer;
   }
  .word_input_button_c {
 	color: #606060;
@@ -129,5 +130,4 @@
 	top:4.5em;
 	left:45em;
 	width:2em;
-	cursor:pointer;
 }

@@ -1,6 +1,6 @@
 	var file_count=0;
 	var back_flag=0;
-	var file_select_num=0;
+	var file_num=0;
 	$(document.body).delegate("#start_button","click",function(){
     	$("#start").toggle();
     	$("#main_bg").css('background-image','url("image/bg/background2.png")');
@@ -9,10 +9,12 @@
 	$(document.body).delegate("#menu img","click",function(){
 		$("#menu").toggle();
     	$("#enter_menu1").toggle();
-    	display(word_arr,word_index);
     });
 	$(document.body).delegate("#file_add","click",function(){
 		file_add();
+	});
+	$(document.body).delegate("#refresh","click",function(){
+		display(word_arr[file_num],word_index[file_num]);
 	});
 	$(document.body).delegate("#memo_icon","click",function(){
 		var spalling=$(this).parent().prev().prev().prev().prev().prev();
@@ -29,10 +31,11 @@
 	});
 	$(document.body).delegate("#all_file img","click",function(){
     	back_flag +=1;
-    	file_select_num=$(this).index();
+    	file_num=$(this).index();
+    	$("#table_name").text("< "+file_name_arr[file_num]+" >");
 		$("#menu1-1").toggle();
     	$("#menu1-2").toggle();
-    	display(word_arr,word_index);
+    	display(word_arr[file_num],word_index[file_num]);
 	});
 	$(document.body).delegate("#back","click",function(){
 		if(back_flag==0){
@@ -52,3 +55,8 @@
 	$(document.body).delegate("#search_icon","click", function(){
 		search_word($("#search_wd").val());
     });
+	$(document.body).delegate("#file_delete","click",function(){
+		$("#file_delete").attr("src", "image/folder/file_delete_click.png");
+		document.getElementById('file_delete').onmouseover = 'null';
+		document.getElementById('file_delete').onmouseout = 'null';
+	});

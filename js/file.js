@@ -25,4 +25,4 @@ var file_add = function(){
 			});
 			file_count++;
 		}
-	}
+}
