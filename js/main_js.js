@@ -205,12 +205,7 @@
                 	file_num--;
         		}
         	}
-        	//모바일 임시용
-        	back_flag=2;
-        	detail_menu1_back();
-        	$("#input_word").css("display","block");
-        	$("#over_flow").css("display","block");
-        
+        	
         });
         $("#file_name_input").keypress(function(){
         	if(event.keyCode==13){
