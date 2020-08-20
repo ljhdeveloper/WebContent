@@ -28,7 +28,7 @@ var file_add = function(file_count){
 }
 var swap_file=function(index1,index2){
 	file_name_arr[index1]=file_name_arr[index2];
-	file_name_arr[index2]="file"+index1+"변함";
+	file_name_arr[index2]="file";
 }
 
 var delete_f=function(){
@@ -43,7 +43,7 @@ var delete_f=function(){
 	
 	for(var i=0;i<file_count_global;i++){
 		if(file_delete_arr[i]){
-			for(var j=file_count_global;j>i;j--){
+			for(var j=file_count_global-1;j>i;j--){
 				if(!file_delete_arr[j]){
 					console.log(j);
 					swap_file(i,j);
