@@ -66,6 +66,10 @@ var delete_f=function(){
 		if(!file_delete_arr[i]){
 			file_delete_index++;
 		}
+		else{
+			word_index[i]=0;
+			file_name_arr[i]="file";
+		}
 	}
 	if(file_delete_index===0){
 		for(var i=0;i<6;i++){

@@ -30,6 +30,9 @@ var insert_memo=function(sword,memo){
 	}
 	word_arr[file_num][i].memo=memo;
 }
+var favorite_print=function(){
+	
+}
 var insert_click=function(){
 	var cw=$("#creat_word").val();
 	var cm=$("#creat_mean").val();
@@ -114,6 +117,20 @@ var search_word = function(dword){
 	search_index=0;
 	for(var i=0;i<word_index[file_num];i++){
 		if(word_arr[file_num][i].word.includes(dword)||word_arr[file_num][i].mean.includes(dword)){
+			search_arr[search_index]=new word;
+			search_arr[search_index].word=word_arr[file_num][i].word;
+			search_arr[search_index].mean=word_arr[file_num][i].mean;
+			search_arr[search_index].favorite=word_arr[file_num][i].favorite;
+			search_arr[search_index].memo=word_arr[file_num][i].memo;
+			search_index++;
+		}
+	}
+	display(search_arr,search_index);
+}
+var favorite_print= function(){
+	search_index=0;
+	for(var i=0;i<word_index[file_num];i++){
+		if(word_arr[file_num][i].favorite){
 			search_arr[search_index]=new word;
 			search_arr[search_index].word=word_arr[file_num][i].word;
 			search_arr[search_index].mean=word_arr[file_num][i].mean;

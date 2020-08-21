@@ -1,5 +1,9 @@
-.search_icon_c,.word_delete_c,.refresh_c,.memo_icon_c,.tts_c,label span{
+.favorite_print_c,.search_icon_c,.word_delete_c,.refresh_c,.memo_icon_c,.tts_c,label span{
 	cursor:pointer;
+}
+.favorite_print_c{
+	top:40em;
+	left:47em;
 }
 .refresh_c{
 	top:4.6em;
