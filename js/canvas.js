@@ -87,7 +87,7 @@ var Background = function () {
 
 $(document.body).delegate("#canvas_start","click",function(){
 	$(this).toggle();
-	main_bgm_control(false);
+	//main_bgm_control(false);
 	bool_start_game=true;
 	bool_bg=false;
 });
