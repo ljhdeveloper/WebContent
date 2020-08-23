@@ -16,10 +16,10 @@ body{
 .start_c{
 	display:block;
 }
-.file_name_input_c,.file_delete_c,.menu_c,.enter_menu1_c,.menu1-2_c{
+.enter_menu2_c,.file_name_input_c,.file_delete_c,.menu_c,.enter_menu1_c,.menu1-2_c{
 	display:none;
 }
-.favorite_print_c,.file_name_input_c,.file_select_c,.refresh_c,.table_name_c,.search_icon_c,.mean_input_c,.word_input_c,.word_input_button_c ,.over_flow_c,.empty_table_c,.search_wd_c,.start_img_c,.start_button_c,.file_delete_c,.file_add_c,.all_file_c,.all_file_naem_c,.back_c{
+.canvas_start_c,.mycanvas_c,.favorite_print_c,.file_name_input_c,.file_select_c,.refresh_c,.table_name_c,.search_icon_c,.mean_input_c,.word_input_c,.word_input_button_c ,.over_flow_c,.empty_table_c,.search_wd_c,.start_img_c,.start_button_c,.file_delete_c,.file_add_c,.all_file_c,.all_file_naem_c,.back_c{
 	position:absolute;
 }
 .start_button_c{
@@ -41,4 +41,11 @@ body{
 .file_name_input_c{
 	width:10em;
 	text-align:center;
+}
+.mycanvas_c{
+	width:48em;
+	border:2px solid;
+	height:35.7em;
+	top:4.1em;
+	left:3.9em;
 }

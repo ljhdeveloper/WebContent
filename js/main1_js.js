@@ -28,8 +28,18 @@
     });
 	$(document.body).delegate("#menu img","click",function(){
 		$("#menu").toggle();
-    	$("#enter_menu1").toggle();
-    });
+		var menu_num=$(this).index();
+		if(menu_num===0){
+			$("#enter_menu1").toggle();
+		}
+		else if(menu_num===1){
+	    	$("#enter_menu2").toggle();
+	    	isGameOver=false;
+	    	background.x=0;
+	    	reset();
+	    	main();
+		}
+	});
 	$(document.body).delegate("#file_add","click",function(){
 		if(file_count_global<6){
 		file_add(file_count_global);
@@ -59,7 +69,10 @@
 	$(document.body).delegate("#back","click",function(){
 		if(back_flag==0){
 			$("#menu").toggle();
-	    	$("#enter_menu1").toggle();
+	    	$("#enter_menu2").css("display","none");
+	    	$("#enter_menu1").css("display","none");
+	    	cancelAnimationFrame(raf);
+	    	isGameOver=true;
 		}
 		if(back_flag==1){
 			$("#menu1-1").toggle();
