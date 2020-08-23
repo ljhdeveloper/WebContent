@@ -110,22 +110,24 @@ var file_select=function(){
 	for(var i=0; i<children.length; i++){
 		children[i].onmouseout = 'null';
 		children[i].onmouseover = 'null';
+		$(children[i]).attr('src','image/folder/file_checkbox.png');
 	}
 	$("body").undelegate("#file_add","click");
 	$("body").undelegate("#all_file img","click");
 	$(document.body).delegate("#all_file img","click",function(e){
-		var src=($(this).attr('src')==='image/folder/file.png')
-		?'image/folder/file_hover.png'
-		:'image/folder/file.png';
+		var src=($(this).attr('src')==='image/folder/file_checkbox.png')
+		?'image/folder/file_checked.png'
+		:'image/folder/file_checkbox.png';
 		$(this).attr('src',src);
 		var bool =(file_delete_arr[$(this).index()])
 		?false:true;
 		file_delete_arr[$(this).index()]=bool;
-
-		console.log(file_delete_arr[$(this).index()]);
 	});
 }
 var file_delete=function(){
+	for(var i=0; i<file_count_global; i++){
+		$("file"+i).attr('src','image/folder/file.png');
+	}
 	delete_f();
 	$("body").undelegate("#all_file img","click");
 	$(document.body).delegate("#file_add","click",function(){
