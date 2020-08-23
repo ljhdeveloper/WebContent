@@ -36,7 +36,7 @@
 	    	$("#enter_menu2").toggle();
 	    	isGameOver=false;
 	    	background.x=0;
-	    	reset();
+	    	main_bgm_control(true);
 	    	main();
 		}
 	});
@@ -72,6 +72,7 @@
 	    	$("#enter_menu2").css("display","none");
 	    	$("#enter_menu1").css("display","none");
 	    	cancelAnimationFrame(raf);
+	    	main_bgm_control(false);
 	    	isGameOver=true;
 		}
 		if(back_flag==1){

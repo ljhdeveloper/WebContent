@@ -11,6 +11,19 @@ var bgimage_tree =new Image();
 bgimage_tree.src="image/canvas/bg/canvas_tree.png";
 var bgimage_main =new Image();
 bgimage_main.src="image/canvas/bg/canvas_main.png";
+var gamestart = new Audio("sound/bgm/main_bgm.mp3");
+
+function main_bgm_control(flag){
+	if(flag){
+	gamestart.volume = 1;
+	gamestart.load();
+	gamestart.play();
+	}
+	else{
+	gamestart.pause();
+	gamestart.currentTime=0;
+	}
+}
 
 var Background = function () {
     this.x = 0, this.y = 0;
