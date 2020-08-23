@@ -2,20 +2,20 @@
 	cursor:pointer;
 }
 .favorite_print_c{
-	top:40em;
-	left:47em;
+	top:41em;
+	left:49em;
 }
 .refresh_c{
-	top:4.6em;
-	left:31em;
+	top:5.6em;
+	left:32.2em;
 }
 .search_wd_c{
-	top:6em;
-	left:40em;
+	top:7.1em;
+	left:42em;
 }
 .table_name_c{
-	top:0.7em;
-	left:0.7em;
+	top:0.8em;
+	left:1.0em;
 	font-family:"hanna_air";
 	font-weight: bold;
 	font-size:4em;
@@ -26,24 +26,25 @@
 }
 .empty_table_c{
 	top:7em;
-	left:4em;
+	left:10em;
 	display:none;
 }
 .over_flow_c{
   max-height:25.6em;
-  max-width:49em;
+  max-width:47em;
   overflow:auto;
-  top:7em;
-  left:4em;
+  top:8em;
+  left:6em;
   }
 .word_table_c{
   font-size:15px;
   height:60%;
-  width:90%;
+  width:96%;
   border-radius:6px;
   border:1px solid black;
   }
   .word_table_c>tbody>tr>td{
+  background-color:ghostwhite;
   white-space: nowrap;
   padding-left:1%;
   border-bottom:1px solid darkred;
@@ -111,8 +112,8 @@
 	border-radius: .5em;
 	box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	font-size:2em;
-	top:17em;
-	left:2em;
+	top:17.5em;
+	left:3em;
 }
 .word_input_button_c:hover {	
 	background: #ededed;
@@ -122,16 +123,16 @@
 }
 .word_input_c{
 	font-size:1.5em;
-	top:22.6em;
-	left:14.1em;
+	top:23.6em;
+	left:16.1em;
 }
 .mean_input_c{
 	font-size:1.5em;
-	top:24.4em;
-	left:15.7em;
+	top:25em;
+	left:17.7em;
 }
 .search_icon_c{
-	top:4.5em;
-	left:45em;
+	top:5.5em;
+	left:47em;
 	width:2em;
 }

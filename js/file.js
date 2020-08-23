@@ -3,12 +3,12 @@ var file_delete_arr=[false,false,false,false,false,false];
 
 var file_add = function(file_count){
 		if(file_count<6){
-			var top=8 ,font_top=12.5;
+			var top=8 ,font_top=13;
 			var left=9 ,font_left=8;
 			var left_index=file_count;
 			if(file_count>2){
 				left_index -= 3;
-				font_top=23;
+				font_top=23.5;
 				top=21;
 			}
 			$("#all_file").append('<img id="file'+file_count+'" class ="file'+file_count+'_c" src="image/folder/file.png" onmouseover="this.src=\'image/folder/file_hover.png\'" onmouseout="this.src=\'image/folder/file.png\'"/>');
