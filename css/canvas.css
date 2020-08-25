@@ -2,3 +2,12 @@
 	top:21.5em;
 	left:14.6em;
 }
+.timer_c{
+	width:7em;
+	text-align:center;
+	font-size:2em;
+	font-weight:bold;
+	opacity:50%;
+	top:2em;
+	left:11em;
+}
