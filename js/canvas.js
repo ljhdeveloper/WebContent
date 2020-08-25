@@ -31,7 +31,7 @@ function unit(){
     this.canvas_ct_y=canvas.height/2-unit.height;
     this.canvas_ct_x=canvas.width/2-unit.width;
     this.x = this.canvas_ct_x , this.y = this.canvas_ct_y , this.speed=5;
-    this.spriteCount=0;
+    this.spriteCount=0,this.frame=0;
     this.m_x=bgimage_map.width/2-480,this.m_y=bgimage_map.height-577;
 	this.render=function(){
         ctx.drawImage(bgimage_map, -this.m_x, -this.m_y);
@@ -62,15 +62,6 @@ function unit(){
 	    //console.log(this.m_x+this.x,this.m_y+this.y);
 	    // up w
 	    if (87 in keysDown) {
-    	/* var delta1 = Date.now() - lastUpdateTime;
-	    if (acDelta1 > 1) {
-	        acDelta1 = 0;*/
-    	ctx.drawImage(ex,this.spriteCount*32,120,32,50,this.x,this.y,32,50);
-	
-	    	this.spriteCount++;
-			if(this.spriteCount > 9){
-				this.spriteCount=0;
-			}
 	    	if(this.y > this.canvas_ct_y)this.y -= this.speed;
 	    	else{
 		    	if(this.m_y <= 0 && this.y >=0){
@@ -79,10 +70,6 @@ function unit(){
 		    	else this.m_y -= this.speed;
 	    	}
 	    }
-	    	/*else {
-	            acDelta1 += delta1;
-	        }
-	        lastUpdateTime1=Date.now();*/
 	    
 	    // down s
 	    if (83 in keysDown) {
@@ -96,6 +83,7 @@ function unit(){
 	    }
 	    //left a
 	    if (65 in keysDown) {
+				
 	    	if(this.x > this.canvas_ct_x)this.x -= this.speed;
 	    	else{
 		    	if(this.m_x <= 0 && this.x >=0){
@@ -106,6 +94,15 @@ function unit(){
 	    }
 	    // right d
 	    if (68 in keysDown) {
+	    	ctx.drawImage(ex,this.spriteCount*32,120,32,50,this.x,this.y,32,50);
+	    	if(this.frame===5){
+		    	this.spriteCount++;
+		    	this.frame=0;
+	    	}
+	    	this.frame++;
+			if(this.spriteCount > 9){
+				this.spriteCount=0;
+			}
 	    	if(this.x < this.canvas_ct_x)this.x += this.speed;
 	    	else{
 		    	if(this.m_x >= map_bd_width && this.x <=canvas.width-unit.width){
