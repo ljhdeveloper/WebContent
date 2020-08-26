@@ -35,7 +35,7 @@
 		else if(menu_num===1){
 	    	$("#enter_menu2").toggle();
 	    	isGameOver=false;
-	    	background.x=0;
+	    	bg.x=0;
 	    	main_bgm_control(true);
 	    	main();
 		}
