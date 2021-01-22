@@ -25,8 +25,8 @@ var end = new Phaser.Class({
 
 var config = {
         type: Phaser.AUTO,
-        width: 800,
-        height: 600,
+        width: 767,
+        height: 571,
         parent: 'game',
         physics: {
             default: 'arcade',
