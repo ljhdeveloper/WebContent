@@ -34,10 +34,6 @@
 		}
 		else if(menu_num===1){
 	    	$("#enter_menu2").toggle();
-	    	isGameOver=false;
-	    	bg.x=0;
-	    	main_bgm_control(true);
-	    	main();
 		}
 	});
 	$(document.body).delegate("#file_add","click",function(){
@@ -71,9 +67,6 @@
 			$("#menu").toggle();
 	    	$("#enter_menu2").css("display","none");
 	    	$("#enter_menu1").css("display","none");
-	    	cancelAnimationFrame(raf);
-	    	main_bgm_control(false);
-	    	isGameOver=true;
 		}
 		if(back_flag==1){
 			$("#menu1-1").toggle();

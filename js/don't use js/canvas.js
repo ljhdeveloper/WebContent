@@ -6,9 +6,14 @@ var msPerFrame = 15;
 var isGameOver=false;
 var raf=null;
 var bool_start_game=false;
+var bool_main=true;
 var keysDown = {}
 var standard_time=0;
 
+this.bgimage_tree =new Image();
+this.bgimage_tree.src="image/canvas/bg/canvas_tree.png";
+this.bgimage_main =new Image();
+this.bgimage_main.src="image/canvas/bg/canvas_main.png";
 
 
 var gamestart = new Audio("sound/bgm/main_bgm.mp3");
@@ -27,30 +32,26 @@ function main_bgm_control(flag){
 }
 class background{
 	constructor(){
-	this.bgimage_tree =new Image();
-	this.bgimage_tree.src="image/canvas/bg/canvas_tree.png";
-	this.bgimage_main =new Image();
-	this.bgimage_main.src="image/canvas/bg/canvas_main.png";
-	
-	this.bgimage_map =new Image();
+	/*this.bgimage_map =new Image();
 	this.bgimage_map.src="image/canvas/bg/canvas_map.png";
 	this.map_bd_width=this.bgimage_map.width-canvas.width;
 	this.map_bd_height=this.bgimage_map.height-canvas.height;
-	this.m_x=this.map_bd_width/2-480,this.m_y=this.map_bd_height-577;
-	this.x = 0, this.y = 0;
+	this.m_x=this.map_bd_width/2-480,this.m_y=this.map_bd_height-577;*/
+	this.map_top =new Image();
+	this.map_top.src="image/canvas/bg/map_top.png";
+	this.map_mid =new Image();
+	this.map_mid.src="image/canvas/bg/map_mid.png";
+	this.map_bottom =new Image();
+	this.map_bottom.src="image/canvas/bg/map_bottom.png";
+	this.m_x=0,this.m_y=0;
 	}
     render() {
-    	ctx.clearRect(0, 0, canvas.width, canvas.height);
-        if(bool_start_game){
-            ctx.drawImage(this.bgimage_map, -this.m_x, -this.m_y);
-        }
-        else{
-            ctx.drawImage(this.bgimage_tree, this.x--, 0);
-            ctx.drawImage(this.bgimage_main, 0, 0);
-            if(this.x<= -1300){
-            	this.x=0;
-            }
-        }
+        //ctx.drawImage(this.bgimage_map, -this.m_x, -this.m_y);
+    	for(var i=0;i<3;i++){
+    	ctx.drawImage(this.map_top, -this.m_x+300*i, -this.m_y);
+    	}
+    	ctx.drawImage(this.map_mid, -this.m_x, -this.m_y+1000);
+    	ctx.drawImage(this.map_bottom, -this.m_x, -this.m_y+1250);
     }
 	timer(){
     	var timer=(Date.now()-standard_time)/1000;
@@ -68,7 +69,7 @@ class background{
         	$("#timer").text(timer_sec+" 초");
     	}
 	}
-	update(unit) {
+	/*update(unit) {
 	    var canvas_ct_y=canvas.height/2-unit.un.height;
 	    var canvas_ct_x=canvas.width/2-unit.un.width;
 	    //console.log(this.m_x+this.x,this.m_y+this.y);
@@ -133,7 +134,7 @@ class background{
 	    if (this.m_y >= this.map_bd_height) {
 	    	this.m_y = this.map_bd_height;
 	    }    
-	}
+	}*/
 }
 class unit{
 	constructor(){
@@ -200,14 +201,54 @@ class unit{
 	    
     }
 }
-
+var main_display=function(){
+	this.x = 0, this.y = 0;
+	this.render=function(){  
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+	    ctx.drawImage(bgimage_tree, this.x--, 0);
+	    ctx.drawImage(bgimage_main, 0, 0);
+	    if(this.x<= -1300){
+	    	this.x=0;
+	    }
+	}
+}
+var update = function () {
+    // up w
+    if (87 in keysDown) {
+    	bg.m_y -= unit13.speed;
+    }
+    // down s
+    if (83 in keysDown) {
+    	bg.m_y += unit13.speed;
+    }
+    //left a
+    if (65 in keysDown) {
+    	bg.m_x -= unit13.speed;
+    }
+    // right d
+    if (68 in keysDown) {
+    	bg.m_x += unit13.speed;
+    }
+    if (this.m_x <= 0) {
+    	this.m_x=0;
+    }
+    if (this.m_x >= this.map_bd_width) {
+    	this.m_x= this.map_bd_width;
+    }
+    if (this.m_y <= 0) {
+    	this.m_y=0;
+    }
+    if (this.m_y >= this.map_bd_height) {
+    	this.m_y = this.map_bd_height;
+    }    
+}
 $(document.body).delegate("#canvas_start","click",function(){
 	$("#timer").toggle();
 	$(this).toggle();
 	//main_bgm_control(false);
 	standard_time=Date.now();
 	bool_start_game=true;
-	bool_bg=false;
+	bool_main=false;
 });
 addEventListener("keydown", function (e) {
 	keysDown[e.keyCode] = true;
@@ -224,8 +265,11 @@ var render = function () {
     var delta = Date.now() - lastUpdateTime;
     if (acDelta > msPerFrame) {
         acDelta = 0;
-    	bg.render();
+        if(bool_main){
+        	md.render();
+        }
         if(bool_start_game){
+        	bg.render();
         	bg.timer();
         	unit13.render();
         }
@@ -234,12 +278,14 @@ var render = function () {
     }
     lastUpdateTime=Date.now();
 };
-var main = function () { 
-	bg.update(unit13);
+var main = function () {
+	update();
+	//bg.update(unit13);
     if (!isGameOver) {
         render();
     }
     raf=requestAnimationFrame(main);
 };
+let md=new main_display();
 let unit13=new unit();
 var bg=new background();
