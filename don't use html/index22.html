@@ -1,0 +1,60 @@
+
+<html>
+
+
+<link rel="stylesheet" href="css/main.css?ver=2">
+<link rel="stylesheet" href="css/table.css?ver=1">
+<head>
+<meta charset="UTF-8">
+<title>이종현 & 김예서</title>
+</head>
+<body>
+<canvas id="myCanvas" width="900px"height="720px"></canvas> 
+<input type="text" id="file_name_input" size=3 value="" >
+<div id="body">
+
+<div id="allfile"></div>
+<div id="allfile_name"></div>
+
+<img id="file_delete" class ="file_delete_img" src="image/folder/file_delete.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_delete.png'"/>	
+<img id="file_add" class ="file_add_img" src="image/folder/file_add.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_add.png'"/>				
+
+<input type="text" id="search_wd" class="search_wd"/>
+<img class ="empty_table" id="empty_table" src="image/bg/empty_table.png"/>
+<div class ="over_flow" id="over_flow">
+ <table id="word_table" class="word_table" cellspacing='0'>
+ <tbody id="t_body">
+ </tbody>
+ </table>
+ </div>
+ 
+ 
+  <img id="back" class ="back_img" src="image/button/back.png" onmouseover="this.src='image/button/back_hover.png'" onmouseout="this.src='image/button/back.png'"/>	
+<img id="menu3" class ="menu3_img" src="image/button/menu3.png" onmouseover="this.src='image/button/menu3_hover.png'" onmouseout="this.src='image/button/menu3.png'"/>
+<img id="menu2" class ="menu2_img" src="image/button/menu2.png" onmouseover="this.src='image/button/menu2_hover.png'" onmouseout="this.src='image/button/menu2.png'"/>		
+<img id="menu1" class ="menu1_img" src="image/button/menu1.png" onmouseover="this.src='image/button/menu1_hover.png'" onmouseout="this.src='image/button/menu1.png'"/>
+<img id="start" class ="start_img" src="image/button/start.png" onmouseover="this.src='image/button/start_hover.png'" onmouseout="this.src='image/button/start.png'"/>
+ 
+ 
+ 
+ 
+<div id="input_word" class="input_word">
+<div class="word_temp" id="word_temp" onclick="insert_click();">단어 입력</div>
+<div class="word_temp-1">
+영단어: <input type="Text" id="creat_word" value="apple" size=7px>
+<div class="word_temp-1-1">
+뜻: <input type="Text" id="creat_mean" value="사과" size=7px>
+</div>
+</div>
+</div>
+
+</div>
+<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="js/TTS_service.js?ver=1"></script>
+<script src="js/initialize.js?ver=2"></script>
+<script src="js/word_data.js?ver=2"></script>
+<script src="js/main_js.js?ver=1"></script>
+
+</body>
+</html>
