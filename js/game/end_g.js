@@ -15,6 +15,7 @@ var end = new Phaser.Class({
 
 	    create: function ()
 	    {
+			console.log("end 스타트3");
 	        this.add.sprite(400, 340, 'end');
 	    }
 });

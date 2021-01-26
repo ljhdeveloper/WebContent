@@ -34,6 +34,10 @@
 		}
 		else if(menu_num===1){
 	    	$("#enter_menu2").toggle();
+	     	$("#select_word_dtn").css({display:"block"});
+	     	scene_allstop();
+	    	game.scene.start('start');
+	    	game_select_box(file_count_global,file_name_arr);
 		}
 	});
 	$(document.body).delegate("#file_add","click",function(){
@@ -67,6 +71,7 @@
 			$("#menu").toggle();
 	    	$("#enter_menu2").css("display","none");
 	    	$("#enter_menu1").css("display","none");
+	    	start_bgm.stop();
 		}
 		if(back_flag==1){
 			$("#menu1-1").toggle();

@@ -1,5 +1,5 @@
-var this_add;
-
+var this_temp;
+var select_word_dtn_num="NULL";
 
 var start = new Phaser.Class({
 
@@ -14,11 +14,10 @@ var start = new Phaser.Class({
     preload: function ()
     {
 
-    	this_add=this;
+    	this_temp=this;
     	  
         this.load.spritesheet('sound_bt', 'image/game/start/sound_button.png',
                 { frameWidth: 50, frameHeight: 50 });
-       // this.load.image('sound_can', 'image/game/start/sound_can.png');
     	this.load.audio('start_bgm','sound/bgm/start_main_bgm.mp3');
 
         this.load.image('layer0', 'image/game/start/bg.png');
@@ -28,7 +27,7 @@ var start = new Phaser.Class({
         this.load.image('start', 'image/game/start/start.png');
 
 
-    	progressbar_set();
+    	progressbar_set(this_temp);
     },
 
     create: function ()
@@ -44,7 +43,7 @@ var start = new Phaser.Class({
         bgm_bt = this.add.sprite(740,540,'sound_bt',1).setInteractive({useHandCursor : true});
        bgm_bt_control(bgm_bt);
        start_bt_control(start);
-		console.log(bgm_bt.frame);
+      // game_select_box(file_count_global,file_name_arr);
         
     },
     update: function ()
@@ -55,17 +54,24 @@ var start = new Phaser.Class({
     }
 
 });
-
+var game_select_box = function(index,name){
+	$("#select_word_dtn option").detach();
+	$("#select_word_dtn").append('<option value="NULL" selected="selected">---단어장 선택---</option>');
+	for(var i=0;i<index;i++){
+	$("#select_word_dtn").append('<option value="'+i+'">---'+name[i]+'---</option>');
+	}
+}
+$('#select_word_dtn').change(function() {
+	select_word_dtn_num = $(this).val();
+});
 var bgm_bt_control= function(bgm_bt){
 	bgm_bt.on('pointerdown', function (pointer) {
 		if(this.frame.name==1){
 	        this.setFrame(0);
 	        if(start_bgm.mute==true){
-	        	console.log("mute");
 	        	start_bgm.mute=false;
 	        }
 	        else{
-	        	console.log("플레이");
 		    start_bgm.play({loop:true});
 	        }
 		}
@@ -78,8 +84,17 @@ var bgm_bt_control= function(bgm_bt){
 }
 var start_bt_control= function(start){
 	 start.on('pointerdown', function (pointer) {
-     	this_add.scene.start('main');
-     });
+		if(select_word_dtn_num=="NULL"){
+			alert('단어장을 선택해주세요');
+		}
+		else{
+		this_temp.scene.stop('start');
+		scene_allstop();
+     	game.scene.start('main');
+     	$("#select_word_dtn").toggle();
+    	start_bgm.stop();
+		}
+	});
      start.on('pointerover', function (pointer) {
      	this.setTint(0xff0000);
      });
@@ -88,9 +103,26 @@ var start_bt_control= function(start){
      });
 }
 
+var scene_allstop =function(){
+	game.scene.stop('main');
+	game.scene.stop('end');
+	game.scene.stop('start');
+}
+function progressbar_set(this_add){
+	let width = this_add.cameras.main.width;
+	let height = this_add.cameras.main.height;
+	let percentText = this_add.make.text({
+	  x: width/2+20,
+	  y: (height/2)+145,
+	  text: '0%',
+	  style: {
+	    font: '18px monospace',
+	    fill: '#ffffff'
+	  }
+	});
 
-function progressbar_set(){
-
+	percentText.setOrigin(0.5,  0.5);
+	
 	let progressBar =  this_add.add.graphics();
 	let progressBox =  this_add.add.graphics();
 	progressBox.fillStyle(0x222222,  0.8);
@@ -99,10 +131,11 @@ function progressbar_set(){
 		  progressBar.clear();
 		  progressBar.fillStyle(0xFFFFFF, 1);
 		  progressBar.fillRoundedRect(250, 460,  300*value, 30, 5);
+		  percentText.setText(Math.floor(value*100) + '%');
 		});
 	this_add.load.on('complete',  function  ()  {
-		  // console.log('complete');
 		  progressBar.destroy();
 		  progressBox.destroy();
+		  percentText.destroy();
 		});
 }
