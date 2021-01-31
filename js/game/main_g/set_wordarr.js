@@ -110,7 +110,6 @@ function q_answer(player){
 
 	console.log(game_wd_index);
 	if(game_wd_index==0){
-		console.log("end 스타트");
 		this_temp.scene.start('end');
      }
 	else{

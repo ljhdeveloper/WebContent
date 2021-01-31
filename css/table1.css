@@ -16,7 +16,6 @@
 .table_name_c{
 	top:0.8em;
 	left:1.0em;
-	font-family:"hanna_air";
 	font-weight: bold;
 	font-size:4em;
 	color:yellowgreen;
@@ -56,8 +55,8 @@
   border-bottom:0px solid black;
   }
    .word_table_c>tbody>tr>td:nth-child(3){
-  width:7%;
-  text-align:right;
+  width:20%;
+  text-align:center;
   }
   .word_table_c>tbody>tr>td:nth-child(5){
   width:18%;
@@ -77,8 +76,7 @@
   background:white;
   }
   .tts_c{
-  width:100%;
-  height:20%;
+  width:50%;
   }
   .word_table_c>tbody>tr:hover>td{
    background:#f2f2f2;
@@ -94,13 +92,13 @@
   }
   label span{
    display:inline-block;
-   width:49%;
+   width:39%;
    height:89%;
   vertical-align:middle;
-  background:url(/../image/button/favorite.png)no-repeat;
+  background:url(../image/button/favorite.png)no-repeat;
   }
   .favorite_box_c:checked +label span{
-  background:url(/../image/button/favorite_check.png)no-repeat;
+  background:url(../image/button/favorite_check.png)no-repeat;
   }
  .word_input_button_c {
 	color: #606060;

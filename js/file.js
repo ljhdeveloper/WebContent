@@ -34,12 +34,18 @@ $("#file_name_input").click(function(e){
 $("#file_name_input").keypress(function(){
 	if(event.keyCode==13){
 		var name=$("#file_name_input").val();
+		if(!name){
+		$("#file_name_input").css("display","none");
+    	$("#file_name"+file_name_select).css("display","block");
+		}
+		else{
 		file_name_arr[file_name_select]=name;
 		$("#file_name"+file_name_select).text(name);
 		$("#file_name_input").css("display","none");
     	$("#file_name"+file_name_select).css("display","block");
     	file_name_select=7;
     	$("#file_name_input").val('');
+		}
 	}
 });
 var swap_file=function(index1,index2){
@@ -140,4 +146,18 @@ var file_delete=function(){
 		file_num=$(this).index();
 		file_enter();
 	});
+}
+
+var ex_word_file_add=function(){
+	file_add(file_count_global);
+	file_count_global++;
+	file_name_arr[0]="예제 영어";
+	$("#file_name0").text("예제 영어");
+	insert_word("apple","사과");
+	insert_word("redue","감소하다");
+	insert_word("league","리그");
+	insert_word("banana","바나나");
+	insert_word("year","년");
+	insert_word("control","제어하다");
+	insert_word("umbrella","우산");
 }

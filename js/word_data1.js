@@ -30,9 +30,6 @@ var insert_memo=function(sword,memo){
 	}
 	word_arr[file_num][i].memo=memo;
 }
-var favorite_print=function(){
-	
-}
 var insert_click=function(){
 	var cw=$("#creat_word").val();
 	var cm=$("#creat_mean").val();

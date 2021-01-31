@@ -15,6 +15,10 @@
     	$("#file_name_input").val('');
 		}
     });
+	$("body").ready(function(){
+		ex_word_file_add();
+		console.log("load성공");
+    });
     $(document.body).delegate("#all_file_name span","click",function(e){
     	e.stopPropagation();
     	if(file_name_select<7){
