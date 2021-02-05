@@ -84,8 +84,13 @@ var bgm_bt_control= function(bgm_bt){
 }
 var start_bt_control= function(start){
 	 start.on('pointerdown', function (pointer) {
+		 
+		 console.log(word_index[select_word_dtn_num]);
 		if(select_word_dtn_num=="NULL"){
 			alert('단어장을 선택해주세요');
+		}
+		else if(word_index[select_word_dtn_num]<3){
+			alert('단어장에 3개 단어 이상의 단어가 필요합니다');
 		}
 		else{
 		this_temp.scene.stop('start');

@@ -1,0 +1,87 @@
+<html>
+<link rel="stylesheet" href="css/main1.css?ver=1">
+<link rel="stylesheet" href="css/table1.css?ver=1">
+<head>
+<meta charset="UTF-8">
+<title>이종현 & 김예서</title>
+</head>
+<body>
+<div id="main_bg" class="main_bg_c">
+<div class="thumbnail">
+
+<div id="start" class="start_c">
+
+<img id="start_img" class ="start_img_c" src="image/bg/login.png"/>
+
+<img id="start_button" class ="start_button_c" src="image/button/start.png" onmouseover="this.src='image/button/start_hover.png'" onmouseout="this.src='image/button/start.png'"/>
+
+</div><!-- start div -->
+
+<div id="menu" class="menu_c">
+</div><!-- menu div -->
+
+<div id="enter_menu1" class="enter_menu1_c">
+<div id="menu1-1" class="menu1-1_c">
+<input type="text" id="file_name_input" class="file_name_input_c" maxlength="10" placeholder="파일이름 입력">
+<img id="file_select" class ="file_select_c" src="image/folder/file_select.png" onmouseover="this.src='image/folder/file_select_hover.png'" onmouseout="this.src='image/folder/file_select.png'"/>	
+<img id="file_delete" class ="file_delete_c" src="image/folder/file_select.png" onmouseover="this.src='image/folder/file_select_hover.png'" onmouseout="this.src='image/folder/file_select.png'"/>	
+<img id="file_add" class ="file_add_c" src="image/folder/file_add.png" onmouseover="this.src='image/folder/file_add_hover.png'" onmouseout="this.src='image/folder/file_add.png'"/>				
+<div id="all_file" class="all_file_c"></div>
+<div id="all_file_name" class="all_file_name_c"></div>
+</div><!-- 파일메뉴 -->
+
+<div id="menu1-2" class="menu1-2_c">
+<span id="table_name" class="table_name_c"></span>
+<button id="favorite_print" class="favorite_print_c" onclick="favorite_print();">즐겨찾기 단어보기</button>
+<input type="text" id="search_wd" class="search_wd_c"/>
+<img id="refresh" class ="refresh_c" src="image/button/refresh.png"/>
+<img id="search_icon" class ="search_icon_c" src="image/button/search_icon.png"/>
+<img id="empty_table" class ="empty_table_c" src="image/bg/empty_table.png"/>
+ <div id="over_flow" class ="over_flow_c" >
+ <table id="word_table" class="word_table_c" cellspacing='0'>
+ <tbody id="t_body" class="t_body_c">
+ </tbody>
+ </table>
+ </div>
+<div id="word_input_button" class="word_input_button_c" onclick="insert_click();">단어 입력</div>
+<div id="word_input" class="word_input_c">
+영단어: <input type="Text" id="creat_word" value="" size=7px>
+</div>
+<div  id="mean_input" class="mean_input_c">
+뜻: <input type="Text" id="creat_mean" value="" size=7px>
+</div>
+
+</div><!-- 단어장 메뉴 -->
+<img id="detail_menu_bg" class ="detail_menu_bg_c" src="image/bg/detail_menu.png"/>
+<img id="back" class ="back_c" src="image/button/back.png" onmouseover="this.src='image/button/back_hover.png'" onmouseout="this.src='image/button/back.png'"/>	
+
+</div><!-- enter_menu1 div -->
+
+<div id="enter_menu2" class="enter_menu2_c">
+
+<div id="game" class="game_c" ></div>
+<select name="select_word_dtn" id="select_word_dtn" class="select_word_dtn_c">
+</select>
+
+<!-- 캔버스 -->
+<img id="back" class ="back_c" src="image/button/back.png" onmouseover="this.src='image/button/back_hover.png'" onmouseout="this.src='image/button/back.png'"/>	
+<img id="detail_menu_bg" class ="detail_menu_bg_c" src="image/bg/detail_menu.png"/>
+</div><!-- enter_menu2 div -->
+
+</div><!-- 위치잡아주기(thumbnail) -->
+</div><!-- main_bg div -->
+<script type="text/javascript" src="js/opensource/jquery-1.10.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/opensource/phaser.min.js"></script>
+
+<script src="js/game/start_g.js?ver=5"></script>
+<script src="js/game/main_g/player.js?ver=2"></script>
+<script src="js/game/main_g/set_wordarr.js?ver=2"></script>
+<script src="js/game/main_g/main_g.js?ver=5"></script>
+<script src="js/game/end_g.js?ver=5"></script>
+<script src="js/initialize1.js?ver=5"></script>
+<script src="js/word_data1.js?ver=5"></script>
+<script src="js/file.js?ver=5"></script>
+<script src="js/main1_js.js?ver=2"></script>
+</body>
+</html>
