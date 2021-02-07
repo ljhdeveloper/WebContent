@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="css/kickstart-buttons.css?ver=1">
+<link rel="stylesheet" href="css/login.css?ver=1">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="main_bg" class="main_bg_c">
+<div class="thumbnail">
+<div id="start" class="start_c">
+<img id="detail_menu_bg" class ="detail_menu_bg_c" src="image/bg/detail_menu.png"/>
+<img id="register_img" class ="register_img_c" src="image/bg/register_img.png"/>
+
+<div id="file_img_div" class="file_img_div_c">
+<img src="image/bg/empty_file.png" id="file_img" class="file_img_c"/>
+</div>
+<form method="post" name="form1" enctype="multipart/form-date">
+
+<input type="file" id="face_img" class="face_img_c" name="face_img" accept="image/*">
+<table>
+<tr>
+<td>아이디:</td>
+<td><input type="text" id="reg_id" class="reg_id_c" name="reg_id"></td>
+<td><button type="button" id="idck" class="small">중복확인</button></td>
+</tr>
+<tr>
+<td>패스워드:</td>
+<td colspan="2"><input type="password" id="reg_pw" class="reg_pw_c" name="reg_pw"></td>
+</tr>
+<tr>
+<td>이름:</td>
+<td colspan="2"><input type="text" id="reg_name" class="reg_name_c" name="reg_name"></td>
+</tr>
+<tr>
+<td id="sm_b" colspan="3"><input type="submit" id="enter_sm" class="large red" value="회원가입" onClick="form_sm()"></td>
+</tr>
+</tbody>
+</table>
+</form>
+
+</div>
+</div>
+</div>
+<script type="text/javascript" src="js/opensource/jquery-1.10.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="js/login.js?ver=5"></script>
+</body>
+</html>
